@@ -1,0 +1,261 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#placeholder {
+  position: relative;
+  width: 640px;
+  height: 360px;
+}
+
+#videoDroneID {
+  position: absolute;
+  left: 0;
+  top: 4;
+  width: 640px;
+  height: 360px;
+}
+
+#innerContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 640px;
+  height: 360px;
+}
+
+#canvasID {
+  width: 640px;
+  height: 360px;
+}
+
+/***************
+/*CSS for Left Widgets*/
+#track {
+    background-color: #f5f5f5;
+}
+
+body{
+//background-image: url('../img/blk-bg.png');
+}
+#streams {
+
+}
+.fixed-link {
+    position:fixed;
+    bottom:10px;
+    right: 10px;
+}
+
+.fixed-link2 {
+    position:fixed;
+    bottom:10px;
+    right: 60px;
+}
+
+.fixed-link3 {
+    position:fixed;
+    bottom:10px;
+    right: 110px;
+}
+
+/*header {
+    background-color: #f5f5f5;
+}
+
+header img {
+    width:700px;
+    height:50px;
+}*/
+
+.header-widget {
+  text-align: center;
+}
+
+.img-widget {
+  text-align: center;
+}
+
+.left{
+    float:left;
+}
+
+.right{
+    float:right;
+}
+
+#video canvas {
+
+}
+
+#preview {
+    background-color: #ffffff;
+    clear:both;
+    color:#f5f5f5;
+    padding:10px;
+}
+
+input{
+    width:50px;
+}
+
+#test-img {
+    display:none;
+    width:640px;
+    height:360px;
+}
+h4{
+    clear:both;
+}
+
+#targetRadius {
+    background-color: seashell;
+    text-align: center;
+    padding:5px;
+    cursor:pointer;
+}
+
+/*CSS for Left Widgets*/
+.widget-container {
+
+    width:200px;
+    height: 840px;
+    background-color: #cccccc;
+   // background-image: url('../img/prpl-bg.png')
+}
+.widget {
+    margin:5px;
+    padding:12px;
+    background-color: rgba(255,255,255,.5)
+}
+#leftWidgets {
+
+}
+
+#rightWidgets {
+
+}
+
+#maxDiff {
+    width: 100%;
+}
+
+/*CSS for Right Widgets*/
+#rightWidgets {
+
+}
+
+.color-info {
+
+    font-size: 18px;
+    list-style: none;
+}
+.color-info li {
+    display:inline;
+    padding:5px;
+    font-size:16px;
+}
+#pickedColor{
+    background-color: #ffffff;
+    color:#f5f5f5;
+    padding:10px;
+}
+
+.contenedor-imagenes {
+  display: flex;
+}
+
+.contenedor-imagenes img:first-child {
+  margin-right: 10px;
+}
+
+.circulo{
+   height:100px;
+   width:100px;
+   background:#E76AFA;
+   -moz-border-radius:50px;
+   -webkit-border-radius:50px;
+   border-radius:50px;
+}
+
+.habilitar {
+    width: 40px;
+    height: 40px;
+    background-color: green;
+}
+  
+.deshabilitar {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+}
+
+.widget-container2 {
+
+    width:264px;
+    height: 840px;
+    background-color: #cccccc;
+   // background-image: url('../img/prpl-bg.png')
+}
+.widget2 {
+    margin:5px;
+    padding:12px;
+    background-color: rgba(255,255,255,.5)
+}
+

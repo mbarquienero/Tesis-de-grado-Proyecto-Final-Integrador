@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\build">
+      <UniqueIdentifier>{D5519164-BF26-36DA-740B-76CEFC1827F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\build\Release">
+      <UniqueIdentifier>{FF075A12-C1E5-B72E-66FE-329E5E401639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:">
+      <UniqueIdentifier>{7B735499-E5DD-1C2B-6C26-70023832A1CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Tesis_2">
+      <UniqueIdentifier>{58F937EC-8058-FD38-B964-B10E715C5CA4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Tesis_2\nodejs">
+      <UniqueIdentifier>{A3C8E949-BCF6-0C67-6656-340A2A097708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Tesis_2\nodejs\sale">
+      <UniqueIdentifier>{BC0A6DD2-4649-B004-D9E1-B9911303232D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Tesis_2\nodejs\sale\node_modules">
+      <UniqueIdentifier>{56DF7A98-063D-FB9D-485C-089023B4C16A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Tesis_2\nodejs\sale\node_modules\node-gyp">
+      <UniqueIdentifier>{77348C0E-2034-7791-74D5-63C077DF5A3B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Tesis_2\nodejs\sale\node_modules\node-gyp\src">
+      <UniqueIdentifier>{8CDEE807-BC53-E450-C8B8-4DEBB66742D4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\build\Release\binding.node">
+      <Filter>..\build\Release</Filter>
+    </None>
+    <ClCompile Include="C:\Tesis_2\nodejs\sale\node_modules\node-gyp\src\win_delay_load_hook.cc">
+      <Filter>C:\Tesis_2\nodejs\sale\node_modules\node-gyp\src</Filter>
+    </ClCompile>
+    <None Include="..\binding.gyp">
+      <Filter>..</Filter>
+    </None>
+  </ItemGroup>
+</Project>

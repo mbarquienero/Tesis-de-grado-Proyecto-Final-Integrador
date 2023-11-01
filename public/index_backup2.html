@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no"
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--------------------------------------------------------------------->
+    <style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#placeholder {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+}
+
+#videoDroneID {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 640px;
+  height: 360px;
+}
+
+#innerContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 640px;
+  height: 360px;
+}
+
+#canvasID {
+  width: 640px;
+  height: 360px;
+}
+</style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Album example for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+
+    <!--------------------------------------------------------------------->
+    <script src="https://cdn.jsdelivr.net/npm/@cloud-annotations/object-detection@0.0.8"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script src="tensorflow/tfjs/dist/tf.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    
+    
+    <script src="nodecopter-client.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+    <title>Fire Detection Stream</title>
+
+</script>
+
+  </head>
+
+  <body>
+    <!--------------------------------------------------------------------->
+     <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <strong>Parrot AR Drone - TESIS</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">VIDEO DRONE STREAM</h1>
+            <div id="placeholder" ></div>
+            <button type="button" class="btn btn-danger btn-rounded" onclick="aterrizarDeEmergencia()">Aterrizar</button>
+        </div>
+        <div id="logPredictions" ></div>
+        <i id="microphone" class="fa fa-microphone" style="font-size:50px;color:grey" ></i>
+        <label class="switch">
+          <input id="prueba1" type="checkbox" onclick="micONOFF()">
+          <span class="slider round"></span>
+        </label>
+
+      </section>
+
+    </main>
+    <!--------------------------------------------------------------------->
+
+    <script>
+
+      //micAvailableOnBrowser();
+ 
+      const elementDroneID = setDroneStream();
+
+      const child = setAttribute( elementDroneID );
+
+      var canvas = createCanvasAppendDrone();
+
+      
+
+      /////////////////
+      var frameBuffer = new Uint8Array(videoCanvas.width * videoCanvas.height * 4);
+      // color (RGB)
+      var pickedColor = [192, 60, 60];
+      // flag de detecction
+      var detected;
+
+      //Reemplazar xVal / yVal con implementación de controladores PID
+      var xPID = new PID({pGain: 0.1, iGain: 0, dGain: 0});
+      var yPID = new PID({pGain: 0.1, iGain: 0, dGain: 0});
+      var zPID = new PID({pGain: 0.1, iGain: 0, dGain: 0});
+
+      // camara del drone trackeada (esta debajo)
+      var track = document.getElementById('track');
+      // setea el tamañp
+      track.width = 640;
+      track.height = 360;
+      var ctx = track.getContext("2d");
+      ctx.fillStyle = "#FF0000";
+
+      //options
+      var maxDiff = 0.01;
+      var w = videoCanvas.width;
+      var h = videoCanvas.height;
+      var b = frameBuffer;
+      var c = frameBuffer;
+      var averagePixel;
+      var count;
+      var lastCount;
+      // estado del drone (follow, orbit)
+      var state;
+      /////////////////////////
+
+      objectDetector.load('/model_web').then(model => detectFrame(model))
+
+      const detectFrame = async models => {
+        const predictions = await models.detect(child);
+        renderPredictions(predictions)
+        requestAnimationFrame(() => {
+          detectFrame(models)
+        })
+      }
+
+      const renderPredictions = predictions => {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+        // Font options.
+        const font = '16px sans-serif'
+        ctx.font = font
+        ctx.textBaseline = 'top'
+        ctx.drawImage(child,0,0,300,300);
+
+        if (predictions != null && predictions != "undefined") {
+
+        predictions.forEach(prediction => {
+          // Bounding boxes's coordinates and sizes
+          const x = prediction.bbox[0]
+          const y = prediction.bbox[1]
+          const width = prediction.bbox[2]
+          const height = prediction.bbox[3]
+          const label = `${prediction.class}: ${prediction.score.toFixed(2)}`
+          // Draw the bounding box.
+          ctx.strokeStyle = '#01DF01'
+          ctx.lineWidth = 5
+          ctx.strokeRect(x, y, width, height)
+          // Draw the label background.
+          ctx.fillStyle = '#01DF01'
+          const textWidth = ctx.measureText(label).width
+          const textHeight = parseInt(font, 10) // base 10
+          ctx.fillRect(x, y, textWidth + 4, textHeight + 4)
+
+
+
+        })
+
+        // Objetivo encontrado, se procede a localizarlo en la imagen
+        
+        predictions.forEach(prediction => {
+          console.log("DDDDDDDDD");
+          const x = prediction.bbox[0]
+          const y = prediction.bbox[1]
+          const label = `${prediction.class}: ${prediction.score.toFixed(2)}`
+          //div.innerHTML += label;
+          // Draw the text last to ensure it's on top.
+          ctx.fillStyle = '#000000'
+          ctx.fillText(label, x, y)
+        })
+      } // if
+    }
+
+      function setDroneStream()
+      {
+        new NodecopterStream( document.getElementById("placeholder") );
+        document.getElementById("placeholder").style.backgroundColor = "transparent";
+        const elementDroneID = document.getElementById( "placeholder" );
+
+        return elementDroneID;
+      }
+
+      function setAttribute( elementDroneID )
+      {
+        var child;
+
+        for( i = 0; i < elementDroneID.childNodes.length; i++ )
+        {
+          child = elementDroneID.childNodes[i];
+          if ( child.nodeName == 'CANVAS' )
+          {
+            // drone video stream
+            child.id = "videoDroneID";
+            child.style.backgroundColor= 'transparent';
+            child.style.opacity= 1;
+          }
+        }
+
+        return child;
+      }
+
+      function createCanvasAppendDrone()
+      {
+        var div2 = document.createElement( "div" );
+
+        div2.setAttribute( "id", "innerContainer" );
+        //canvas.setAttribute( "width", "640" );
+        //canvas.setAttribute( "height", "360" );
+        //canvas.setAttribute( "className", "canvasVideo" );     
+
+        document.getElementById("placeholder").appendChild(div2);
+
+        var canvas = document.createElement( "canvas" );
+
+        canvas.setAttribute( "id", "canvasID" );
+        canvas.setAttribute( "width", "640" );
+        canvas.setAttribute( "height", "360" );
+        //canvas.setAttribute( "className", "canvasVideo" );
+        
+        document.getElementById("innerContainer").appendChild(canvas);
+
+        return canvas;
+      }
+
+      function micONOFF() 
+      {
+         var toggleSwitch = document.getElementById("prueba1").checked;
+
+         var mic = document.getElementById("microphone");
+
+          if ( toggleSwitch == true ) 
+          {
+              // verde claro
+              document.getElementById("microphone").style.color = MICROPHONE_COLOR_GREEN;
+              console.log(document.getElementById("microphone").style.color);
+              // microfono ON
+              //navigator.mediaDevices.getUserMedia({ audio: true });
+          } 
+          else {
+              document.getElementById("microphone").style.color = MICROPHONE_COLOR_GREY;
+              console.log(document.getElementById("microphone").style.color);
+              // microfono OFF
+              //navigator.mediaDevices.getUserMedia({ audio: false });
+          }
+      }
+
+      // Aterrizar de emergencia
+      function aterrizarDeEmergencia()
+      {
+          console.log("COMANDO: ATERRIZAR DE EMERGENCIA");
+          drone.land();
+      }
+
+      /*
+        Se verifica si el uso del controlador del microfono esta disponible en el browser (IE, Google Chrome, etc).
+      */
+      function micAvailableOnBrowser()
+      {
+         var microphoneAvailable = navigator.getUserMedia || 
+                                   navigator.webkitGetUserMedia || 
+                                   navigator.mozGetUserMedia;
+
+         if ( !microphoneAvailable ) {
+
+            return Promise.reject(new Error("getUserMedia no se encuentra implementado en el browser"));
+         }
+
+         // Se procede a apagar el microfono
+         if ( navigator.mediaDevices && navigator.mediaDevices.getUserMedia ) 
+         {
+            navigator.mediaDevices.getUserMedia(MICROPHONE_CONFIG_DEFAULT).then(function success(stream) {
+                /* do stuff */
+            }).catch(function(err) 
+            {
+                if (err.name == "NotFoundError" || err.name == "DevicesNotFoundError") {
+
+                    console.log( err + "\n" + MICROPHONE_ERROR_HANDLER_1 );
+
+                } else if (err.name == "NotReadableError" || err.name == "TrackStartError") {
+                    
+                    console.log( err + "\n" + MICROPHONE_ERROR_HANDLER_2 );
+
+                } else if (err.name == "OverconstrainedError" || err.name == "ConstraintNotSatisfiedError") {
+                     
+                    console.log( err + "\n" + MICROPHONE_ERROR_HANDLER_3 );
+
+                } else if (err.name == "NotAllowedError" || err.name == "PermissionDeniedError") {
+                    
+                    console.log( err + "\n" + MICROPHONE_ERROR_HANDLER_4 );
+
+                } else if (err.name == "TypeError" || err.name == "TypeError") {
+                    
+                    console.log( err + "\n" + MICROPHONE_ERROR_HANDLER_5 );
+                }
+            });
+         }
+      }
+
+      function setConstants()
+      {
+         // Color microfono
+         const MICROPHONE_COLOR_GREY = "grey";
+         const MICROPHONE_COLOR_GREEN = "#00b347";
+
+         // Seteo de microfono pór default
+         const MICROPHONE_CONFIG_DEFAULT = { video: true, audio: false }
+
+         // Manejo de errores: Microfono o video
+         const MICROPHONE_ERROR_HANDLER_1 = "No tiene microfono o video seteados";
+         const MICROPHONE_ERROR_HANDLER_2 = "La camara web o el microfono ya están en uso";
+         const MICROPHONE_ERROR_HANDLER_3 = "No puede satisfacer la configuracion de los dispositivos";
+         const MICROPHONE_ERROR_HANDLER_4 = "Permiso denegado en el navegador";
+         const MICROPHONE_ERROR_HANDLER_5 = "Dispositivo solicitado no encontrado"
+      }
+
+    </script>
+  </body>
+</html>

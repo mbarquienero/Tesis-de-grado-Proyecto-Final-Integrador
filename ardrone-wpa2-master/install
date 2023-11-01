@@ -1,0 +1,49 @@
+Script started on 2022-03-20 16:48:16-0300
+]0;mauro@DESKTOP-SV60GQU: /mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[01;32mmauro@DESKTOP-SV60GQU[00m:[01;34m/mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[00m$ scrt[Kipt/install
+Uploading binaries...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 81739    0     0  100 81739      0   614k --:--:-- --:--:-- --:--:--  633k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  242k    0     0  100  242k      0   875k --:--:-- --:--:-- --:--:--  875k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 33 1284k    0     0   33  432k      0  1928k --:--:-- --:--:-- --:--:-- 1920k100 1284k    0     0  100 1284k      0  1648k --:--:-- --:--:-- --:--:-- 1646k
+Connection closed by foreign host.
+wpa_supplicant installed.
+]0;mauro@DESKTOP-SV60GQU: /mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[01;32mmauro@DESKTOP-SV60GQU[00m:[01;34m/mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[00m$ scrt[Kiptn[K [K/connect ""H"O"[1P"I"T"R"O"N"-"F"6"F"0"[C -a [K[Kp ""4"3"A"T"B"4"C"K"F"R"8"3"[C -a  ""1"9"2"."1"6"8"."0"."2"5"1"[1P"[1P"1"
+ESSID: HITRON-F6F0
+PASSWORD: 43ATB4CKFR83
+ADDRESS: 192.168.0.21
+DRONE_IP: 192.168.1.1
+Connection closed by foreign host.
+]0;mauro@DESKTOP-SV60GQU: /mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[01;32mmauro@DESKTOP-SV60GQU[00m:[01;34m/mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[00m$ ping 192.0[K168.0.21
+PING 192.168.0.21 (192.168.0.21) 56(84) bytes of data.
+64 bytes from 192.168.0.21: icmp_seq=1 ttl=64 time=234 ms
+64 bytes from 192.168.0.21: icmp_seq=2 ttl=64 time=2.10 ms
+^C
+--- 192.168.0.21 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 2.104/118.211/234.319/116.108 ms
+]0;mauro@DESKTOP-SV60GQU: /mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[01;32mmauro@DESKTOP-SV60GQU[00m:[01;34m/mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[00m$ telnet 192.168.0.21
+Trying 192.168.0.21...
+Connected to 192.168.0.21.
+Escape character is '^]'.
+
+
+
+BusyBox v1.14.0 () built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+# reoute      route add default  fwfwfwffwwwfwawsww w w w w w w w w w   gw ""1"1"" 9"2"."1"3"8"5"" " " 6"8"."0"."1"" ath0
+# exit
+Connection closed by foreign host.
+]0;mauro@DESKTOP-SV60GQU: /mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[01;32mmauro@DESKTOP-SV60GQU[00m:[01;34m/mnt/c/Tesis 2/nodejs/sale/ardrone-wpa2-master[00m$ telnet[K[K[K[K[K[Ktelnet 192.168.0.21[2Pping[C[C[C[C[C[C[C[C[C[C[C[C[C
+PING 192.168.0.21 (192.168.0.21) 56(84) bytes of data.
+64 bytes from 192.168.0.21: icmp_seq=1 ttl=64 time=1.24 ms
+64 bytes from 192.168.0.21: icmp_seq=2 ttl=64 time=1.65 ms
+64 bytes from 192.168.0.21: icmp_seq=3 ttl=64 time=1.22 ms
+^C
+--- 192.168.0.21 ping statistics ---
+3

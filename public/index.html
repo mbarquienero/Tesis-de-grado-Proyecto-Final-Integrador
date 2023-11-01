@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="drone/css/index.css">
+    <link rel="icon" href="images/drone.ico">
+    <title>TESIS DE GRADO-PROY.FIN.INTEG.</title>
+  </head>
+
+    <body ng-app="myApp" ng-controller="Controller">
+      <script src="https://cdn.jsdelivr.net/npm/@cloud-annotations/object-detection@0.0.8"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+      <script src="/drone/js/lib/nodecopter-client.js"></script>
+      <script src="/drone/js/jquery/dist/jquery.min.js" charset="utf-8"></script>
+      <script src="/drone/js/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
+      <script src="/drone/js/angular/angular.js"></script>
+
+     <header>
+           <div style="width: 500px; border-left: 340px solid #FFFFFF;"><img  src="images/unimoron.jpg"  alt="PARROTArDrone2.0"/></div>
+      </div>
+    </header>
+
+    <div class="row">
+      <div id="wrapper">
+      <div id="leftWidgets" class="widget-container left">
+      <div class="widget">
+         <section>
+            <div><h4><b>Detección por voz:</b></h4><p id="deteccionPorVoz"></p></div>
+            
+         </section>
+      </div>
+      <div class="widget">  
+        <div class="row">
+            <img src="images/persona.png"  alt="persona">
+            <div id="persona" class="deshabilitar rounded-circle"></div>
+            <img src="images/televisor.png"  alt="televisor"/>
+            <div id="tv" class="deshabilitar rounded-circle"></div>
+            <img src="images/celular.png"  alt="celular"/>
+            <div id="celular" class="deshabilitar rounded-circle"></div>
+            <img src="images/botella.png"  alt="botella"/>
+            <div id="botella" class="deshabilitar rounded-circle"></div>
+            <img src="images/total.png"  alt="total"/>
+            <div id="total" class="deshabilitar rounded-circle"></div>       
+        </div>
+      </div>
+        <div class="widget">
+          <h4><b>COMANDOS:</b></h4>
+          <textarea id="comando" class="form-control" id="exampleFormControlTextarea1" rows="5" disabled></textarea>
+        </div>
+    </div>  
+   </div> 
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading"></h1>
+            <div id="placeholder"></div>
+        </div>
+      </section>
+
+      <div id="rightWidgets" class="widget-container2 right">
+        <div class="widget2">
+         <div class="row" style="padding: 10px">
+           <label for="fps"><b>Velocidad: {{fps}}</b></label>
+           <input type="range" value="2" id="fps" ng-model="fps" min="25" max="500">
+        </div>
+        <div class="row" style="padding: 10px">
+           <label for="altitud"><b>Altitud: {{altitud}}</b></label>
+           <input type="range" value="1" id="altitud" ng-model="altitud" min="1" max="5">
+           </div>
+
+        </div>
+        <div class="widget2">
+          <h4>Bateria:</h4>
+          <progress id="batteria" max="100" value="70" >Bateria</progress>
+        </div>
+        <div class="widget2">
+          <div class="row">
+            <button id="flight" class="btn" ng-click="despegar()"><img src ="images/takeoff.png" height="50" width="50"></button>
+            <button class="btn" ng-click="camara()"><img src ="images/camera-switch-128.png" height="50" width="50"></button>
+            <button id="flight" class="btn" ng-click="aterrizar()"><img src ="images/landing2.jpg" height="50" width="50"></button>
+          </div>
+        </div>
+        <div class="widget2">
+          <b>LISTA DE COMANDOS:</b>
+          <textarea id="textarea2" class="form-control" rows="19" style="font-weight:bold;" disabled>✔activar detección&#13;✔desactivar detección&#13;✔persona&#13;✔televisor&#13;✔celular&#13;✔botella&#13;✔detección total&#13;✔seguimiento de persona&#13;✔despegar&#13;✔aterrizar&#13;✔arriba&#13;✔abajo&#13;✔izquierda&#13;✔derecha&#13;✔atrás&#13;✔rotar izquierda&#13✔rotar derecha&#13;✔parar</textarea>
+        </div>
+      </div>
+
+  </div>
+    <script src="/drone/js/main.js" type="text/javascript"></script>
+    <script src="/drone/js/drone.js" type="text/javascript"></script>
+  </body>
+</html>
