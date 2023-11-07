@@ -252,7 +252,8 @@ myApp.controller('Controller', ['$scope', function ($scope) {
         case (xCenter >= 180 && xCenter <= 209): angulo = 20; break;
         case (xCenter >= 210 && xCenter <= 239): angulo = 15; break;
         case (xCenter >= 240 && xCenter <= 269): angulo = 10; break;
-        case (xCenter >= 270 && xCenter <= 309): angulo = 5 ; break;
+        //case (xCenter >= 270 && xCenter <= 309): angulo = 5 ; break;
+        case (xCenter >= 270 && xCenter <= 299): angulo = 5 ; break;
         default: angulo = 0; 
       }
 
@@ -264,8 +265,10 @@ myApp.controller('Controller', ['$scope', function ($scope) {
 
         switch(true) {
   
-        case (xCenter >= 560): angulo = 55; break;
-        case (xCenter >= 540 && xCenter <= 559): angulo = 45; break;
+        //case (xCenter >= 560): angulo = 55; break;
+        case (xCenter >= 570): angulo = 55; break;
+        //case (xCenter >= 540 && xCenter <= 559): angulo = 45; break;
+        case (xCenter >= 540 && xCenter <= 569): angulo = 45; break;
         case (xCenter >= 510 && xCenter <= 539): angulo = 35; break;
         case (xCenter >= 480 && xCenter <= 509): angulo = 25; break;
         case (xCenter >= 450 && xCenter <= 479): angulo = 20; break;
